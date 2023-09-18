@@ -28,16 +28,16 @@ exports.getFindAll = () => {
     return result;
 };
 
-exports.update = (id, new_row) => {
-    const id_num = ~~id;
-    const boardUpdate = boardRepository.update(id_num, new_row);
+exports.update = (board_id, new_row) => {
+    const id = parseInt(board_id);
+    const boardUpdate = boardRepository.update(id, new_row);
 
     return boardUpdate;
 };
 
-exports.delete = (id) => {
-    const id_num = ~~id;
-    const boardDelete = boardRepository.delete(id_num);
+exports.delete = (board_id) => {
+    const id = parseInt(board_id);
+    const boardDelete = boardRepository.delete(id);
 
     return boardDelete;
 };

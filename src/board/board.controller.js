@@ -32,12 +32,14 @@ exports.postWrite = (req, res) => {
 
 exports.postModify = (req, res) => {
     const { id } = req.query;
-    boardService.update(id, req.body);
+    const boardModify = boardService.update(id, req.body);
+    if (!boardModify) res.send("not modify");
     res.redirect(`/boards/view?id=${id}`);
 };
 
 exports.postDelete = (req, res) => {
     const { id } = req.query;
-    boardService.delete(id);
+    const boardDelete = boardService.delete(id);
+    if (!boardDelete) res.send("not delete");
     res.redirect("/boards/list");
 };
